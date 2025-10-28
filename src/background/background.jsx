@@ -7,12 +7,10 @@ export function BackgroundRippleEffectDemo() {
       <BackgroundRippleEffect />
       <div className="mt-60 w-full">
         <h2 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-neutral-800 md:text-4xl lg:text-7xl dark:text-neutral-100">
-          Interactive Background Boxes Ripple Effect
+          Welcome
         </h2>
         <p className="relative z-10 mx-auto mt-4 max-w-xl text-center text-neutral-800 dark:text-neutral-500">
-          Hover over the boxes above and click. To be used on backgrounds of hero
-          sections OR Call to Action sections. I beg you don&apos;t use it
-          everywhere.
+          My name is Esteban Vargas, I'm a front-end developer passionate about designing and creating professional websites. Let's talk and make your ideas a reality.
         </p>
       </div>
     </div>
