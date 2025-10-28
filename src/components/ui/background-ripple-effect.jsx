@@ -2,8 +2,8 @@ import React, { useMemo, useRef, useState } from "react";
 import { cn } from "../../utils/cn";
 
 export const BackgroundRippleEffect = ({
-  rows = 8,
-  cols = 27,
+  rows = 17,
+  cols = 34,
   cellSize = 56,
 }) => {
   const [clickedCell, setClickedCell] = useState(null);

@@ -26,6 +26,10 @@ body,
 #root {
   height: 100%;
 }
+/* Smooth scrolling for in-page anchors */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   /* Global background and text color (avoid @apply to prevent PostCSS/Tailwind lint issues) */
