@@ -1,0 +1,74 @@
+.header {
+  color: white;
+  padding: 2rem;
+  display: flex;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+@font-face {
+  font-family: "GodOfWar";
+  src: local("GodOfWar"), url("../fonts/NewRocker-Regular.otf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.header-title {
+  margin-top: 0;
+  font-size: 5.40rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-family: "GodOfWar", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 0 0 20px rgba(156, 0, 1, 0.5);
+  color:#9C0001;
+}
+
+.header-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: left;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.header-button {
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  background-color: #9C0001;
+}
+
+.header-button:hover {
+  background-color: #750000;
+  border-color: #750000;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-text {
+    margin-bottom: 2rem;
+  }
+
+  .header-buttons {
+    justify-content: center;
+  }
+}
