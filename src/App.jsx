@@ -9,14 +9,13 @@ import './index.css'
 
 function App() {
   return (
-    <main className='text-4xl font-bold'>
+    <main className='pb-24 text-4xl font-bold'>
       <BackgroundRippleEffectDemo />
       <Header />
       <About />
       <Projects />
       <Contact />
       <FloatingDockDemo />
-      <ThreeDCardDemo />
     </main>
   )
 }

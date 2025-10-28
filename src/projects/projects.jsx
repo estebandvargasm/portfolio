@@ -1,23 +1,6 @@
 import React from "react";
 import "./projects.css";
-
-const ProjectCard = ({ title, description, image, projectLink, codeLink }) => (
-  <div className="project-card">
-    <img src={image} alt={title} className="project-image" />
-    <div className="project-info">
-      <h3 className="project-title">{title}</h3>
-      <p className="project-description">{description}</p>
-      <div className="project-links">
-        <a href={projectLink} target="_blank" rel="noopener noreferrer" className="project-link">
-          View Project
-        </a>
-        <a href={codeLink} target="_blank" rel="noopener noreferrer" className="project-link">
-          View Code
-        </a>
-      </div>
-    </div>
-  </div>
-);
+import { ThreeDCardDemo } from '../test.jsx'
 
 const Projects = () => {
   const projects = [
@@ -43,7 +26,7 @@ const Projects = () => {
         <h2 className="projects-title">Projects</h2>
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+            <ThreeDCardDemo key={index} {...project} />
           ))}
         </div>
       </div>

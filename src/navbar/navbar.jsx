@@ -67,10 +67,10 @@ export function FloatingDockDemo() {
     },
   ];
   return (
-    <div className="flex items-center justify-center h-[35rem] w-full">
+    <div className="fixed bottom-6 left-0 right-0 z-50 flex items-center justify-center pointer-events-none">
       <FloatingDock
-        // solo para demo, elimina para producción
-        mobileClassName="translate-y-20"
+        desktopClassName="pointer-events-auto"
+        mobileClassName="pointer-events-auto translate-y-20"
         items={links}
       />
     </div>
