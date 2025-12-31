@@ -46,7 +46,7 @@ const FloatingDockMobile = ({
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}>
                 <a
                   href={item.href}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-900">
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/10 text-slate-200 backdrop-blur">
                   <div className="h-4 w-4">{item.icon}</div>
                 </a>
               </motion.div>
@@ -56,8 +56,8 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-800">
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/10 backdrop-blur text-slate-200">
+        <IconLayoutNavbarCollapse className="h-5 w-5" />
       </button>
     </div>
   );
@@ -73,7 +73,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-16 items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 md:flex dark:bg-neutral-900",
+        "mx-auto hidden h-16 items-end gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 pb-3 shadow-[0_25px_80px_-45px_rgba(59,130,246,0.6)] backdrop-blur-xl md:flex",
         className
       )}>
       {items.map((item) => (
@@ -108,21 +108,24 @@ function IconContainer({
 
   const [hovered, setHovered] = useState(false);
 
+  const isExternal = href.startsWith('http') || href.startsWith('mailto:');
+
   return (
-    <a href={href}>
+    <a href={href} target={isExternal ? "_blank" : "_self"} rel={isExternal ? "noopener noreferrer" : undefined}>
       <motion.div
         ref={ref}
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-gray-200 dark:bg-neutral-800">
+        className="relative flex aspect-square items-center justify-center rounded-full border border-white/10 bg-white/10 text-slate-200 transition hover:text-sky-300 hover:bg-white/15">
         <AnimatePresence>
           {hovered && (
             <motion.div
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-8 left-1/2 w-fit rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs whitespace-pre text-neutral-700 dark:border-neutral-900 dark:bg-neutral-800 dark:text-white">
+              className="absolute -top-9 left-1/2 w-fit rounded-md border border-white/10 bg-white/5 px-2 py-1 text-xs whitespace-pre text-white backdrop-blur-xl shadow-lg"
+            >
               {title}
             </motion.div>
           )}

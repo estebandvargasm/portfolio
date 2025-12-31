@@ -1,60 +1,70 @@
-import React, { useState } from "react";
+import React from "react";
+import { IconCode, IconBriefcase } from "@tabler/icons-react";
 import "./about.css";
 
 const About = () => {
-  const [activeSection, setActiveSection] = useState('skills');
-
-  const skills = [
-    "React.js", "React Native", "HTML5", "CSS3", "JavaScript", "Git"
+  const highlights = [
+    {
+      title: "Frontend Master",
+      detail: "React, JavaScript, Tailwind CSS",
+      icon: IconCode,
+    },
+    {
+      title: "Professional",
+      detail: "Clean Code, Performance, UX/UI Focus",
+      icon: IconBriefcase,
+    },
   ];
 
-  const education = [
-    "Universidad Distrital Francisco José de Caldas, Bogotá, 2018-2024",
+  const stats = [
+    { label: "Projects", value: "4" },
+    { label: "Technologies", value: "4" },
   ];
-
-  const renderList = (items) => (
-    <ul className="info-list">
-      {items.map((item, index) => (
-        <li key={index} className="info-item">{item}</li>
-      ))}
-    </ul>
-  );
 
   return (
     <section className="about" id="about">
+      <div className="about-glow" aria-hidden />
       <div className="about-content">
-        <h2 className="about-title">About Me</h2>
-        <div className="about-main">
-          <div className="about-text-container">
-            <p className="about-text">
-              I'm Esteban, a passionate frontend developer with a keen eye for design and a love for creating professional, user-friendly websites. With a strong foundation in modern web technologies and a commitment to continuous learning, I bring ideas to life through clean, efficient code and intuitive user interfaces.
-            </p>
-            <p className="about-text">
-              My journey in web development began with a fascination for how technology can solve real-world problems. This drive led me to master a variety of tools and frameworks, always with the goal of delivering exceptional digital experiences. Whether it's building responsive layouts, optimizing performance, or implementing complex features, I approach each project with enthusiasm and attention to detail.
-            </p>
-          </div>
-          <div className="about-image-container">
-            <img src="/esteban-perfil.jpg" alt="Esteban" className="about-image" />
+        <div className="about-left">
+          <p className="about-kicker">About Me</p>
+          <h2 className="about-heading">I build clean and functional digital experiences.</h2>
+          <p className="about-text">
+            I'm Esteban, a passionate frontend developer with a keen eye for design and a love for creating professional, user-friendly websites and applications.
+          </p>
+          <p className="about-text">
+            My journey in web development began with a fascination for how technology can solve real-world problems. This drive led me to master a variety of tools and frameworks, always with the goal of delivering exceptional digital experiences. Whether it's building responsive layouts, optimizing performance, or implementing complex features, I approach each project with enthusiasm and attention to detail.
+          </p>
+
+          <div className="about-highlights">
+            {highlights.map((item) => {
+              const IconComponent = item.icon;
+              return (
+                <div key={item.title} className="about-highlight-card">
+                  <div className="about-highlight-icon">
+                    <IconComponent className="h-6 w-6 text-sky-300" />
+                  </div>
+                  <div>
+                    <p className="about-highlight-title">{item.title}</p>
+                    <p className="about-highlight-detail">{item.detail}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
-        <div className="info-section">
-          <div className="info-buttons">
-            <button 
-              className={`info-button ${activeSection === 'skills' ? 'active' : ''}`}
-              onClick={() => setActiveSection('skills')}
-            >
-              Skills
-            </button>
-            <button 
-              className={`info-button ${activeSection === 'education' ? 'active' : ''}`}
-              onClick={() => setActiveSection('education')}
-            >
-              Education
-            </button>
-          </div>
-          <div className="info-content">
-            {activeSection === 'skills' && renderList(skills)}
-            {activeSection === 'education' && renderList(education)}
+
+        <div className="about-profile">
+          <img src="/esteban-perfil.png" alt="Esteban Vargas" className="about-avatar" />
+          <h3 className="about-name">Esteban Vargas</h3>
+          <p className="about-role">Frontend Developer</p>
+          <div className="about-divider" />
+          <div className="about-stats">
+            {stats.map((stat) => (
+              <div key={stat.label} className="about-stat">
+                <p className="about-stat-value">{stat.value}</p>
+                <p className="about-stat-label">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

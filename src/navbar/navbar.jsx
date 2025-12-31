@@ -5,6 +5,8 @@ import {
   IconUser,
   IconMail,
   IconTerminal2,
+  IconBrandLinkedin,
+  IconBrandGithub,
 } from "@tabler/icons-react";
 
 export function FloatingDockDemo() {
@@ -31,11 +33,25 @@ export function FloatingDockDemo() {
       href: "#projects",
     },
     {
+      title: "LinkedIn",
+      icon: (
+        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://www.linkedin.com/in/esteban-david-vargas-medina/",
+    },
+    {
+      title: "GitHub",
+      icon: (
+        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://github.com/estebandvargasm",
+    },
+    {
       title: "Contact",
       icon: (
         <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#contact",
+      href: "mailto:estebandvargasm@outlook.com?subject=Creemos%20algo%20increíble!",
     },
   ];
   return (

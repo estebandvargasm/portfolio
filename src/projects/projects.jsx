@@ -1,6 +1,6 @@
 import React from "react";
 import "./projects.css";
-import { ThreeDCardDemo } from '../test.jsx'
+import { ThreeDCardDemo } from "../test.jsx";
 
 const Projects = () => {
   const projects = [
@@ -10,6 +10,8 @@ const Projects = () => {
       image: "/MIND-SAS-BIC.png",
       projectLink: "https://www.metalmindsa.com/",
       codeLink: "https://github.com/LuisDavidFajardoH/Mind",
+      tags: ["React", "JavaScript"],
+      icon: "web",
     },
     {
       title: "Portfolio Website",
@@ -17,6 +19,8 @@ const Projects = () => {
       image: "/portfolio.png",
       projectLink: "#",
       codeLink: "#",
+      tags: ["React", "JavaScript", "Tailwind"],
+      icon: "web",
     },
   ];
 
@@ -24,9 +28,13 @@ const Projects = () => {
     <section className="projects" id="projects">
       <div className="projects-content">
         <h2 className="projects-title">Projects</h2>
+        <p className="projects-subtitle">
+          A selection of works that demonstrate my technical skills and attention to detail.
+        </p>
+
         <div className="projects-grid">
-          {projects.map((project, index) => (
-            <ThreeDCardDemo key={index} {...project} />
+          {projects.map((project) => (
+            <ThreeDCardDemo key={project.title} {...project} />
           ))}
         </div>
       </div>
